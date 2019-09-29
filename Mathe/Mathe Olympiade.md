@@ -207,3 +207,68 @@ $
 Die Annahme $x,y \in \mathbb{Z}$ fuehrt zu einem Wiederspruch.
 
 Es gibt keine ganzen Zahlen $x$ und $y$, die die Gleichung erfuellen.
+
+## 591214
+
+Weil ein Tetraeder in einen Wuerfel so eingeschrieben werden kann, dass seine Kanten Diagonalen der Wuerfelflaechen sind, liegen die Rechtecke des neuen Koerpers auf dem eines Wuerfels.
+
+Dieser Wuerfel umhuellt den neuen Koerper komplett.
+
+Das Volumen des neuen Koerpes laesst sich dann aus dem Volumen des umhuellenden Wuerfels minus den Volumen der Pyramiden mit Dreieckiger Grundflaeche an den Ecken berechnet werden.
+
+Das Volumen des umhuellenden Wurfels laesst sich aus dem Abstand der jeweils gegenueber liegenden Rechtecke bestimmen:
+
+$V_{Wuerfel}=d_{Rechtecke}^3$
+
+Der Abstand der gegenueberliegenden Rechtecke ist durch den Strahlensatz 3 mal der Abstand zwischen den gegenueberliegenden Kanten des Tetraeders.
+
+Der Abstand der Gegenueberliegenden Kanten des Tetraeders laesst sich durch anwendung des Satz des Pythagoras und der Definition von Sinus berechen:
+
+$d_{gegenueberliegende}^2=h_{Tetraederflaeche}^2-\left(\dfrac{1}{2}a\right)^2$
+
+$h_{Tetraederflaeche}=sin(60^\circ)\cdot a=\dfrac{\sqrt{3}}{2}a$
+
+$d_{gegenueberliegende}=\sqrt{\dfrac{3}{4}a^2-\dfrac{1}{4}a^2}=\sqrt{\dfrac{1}{2}}a=\dfrac{1}{2}\sqrt{2}\cdot a$
+
+$d_{Rechtecke}=3\cdot d_{gegenueberliegende}=3\cdot\dfrac{1}{2}\sqrt{2}\cdot a$
+
+$V_{Wuerfel}=\left(3\cdot\dfrac{1}{2}\sqrt{2}\cdot a\right)^3=27\cdot\dfrac{1}{8}\cdot 2\cdot \sqrt{2}\cdot a^3=\dfrac{27}{4}\cdot\sqrt{2}\cdot a^3$
+
+Die Pyramiden, die Subtrahiert werden muessen, haben jeweils eine regelmaessig dreieckige Grundflaeche mit Kantenlaenge von $a$ und $2a$.
+
+Auch sind die Pyramiden rechtwinklig.
+
+Fuer das Volumen einer solchen Pyramide mit kantenlaengen x der Grundflaeche gilt:
+
+$V_x=\dfrac{\sqrt{2}}{24}\cdot x^3$
+
+Die Summe aller zu subtrahierenden Eckpyramiden ist somit:
+
+$\begin{aligned}
+V_{Ecken}&=4\cdot\left(\dfrac{\sqrt{2}}{24}\cdot a^3\right)+4\cdot\left(\dfrac{\sqrt{2}}{24}\cdot 8a^3\right)\\
+&=\dfrac{\sqrt{2}}{6}\cdot a^3+\dfrac{\sqrt{2}}{6}\cdot 8a^3\\
+\end{aligned}$
+
+Und das Volumen des neuen Koerpers ist:
+
+$\begin{aligned}
+V_{neu}&=V_{Wuerfel}-V_{Ecken}\\
+&=\dfrac{27}{4}\cdot\sqrt{2}\cdot a^3-\dfrac{\sqrt{2}}{6}\cdot a^3-\dfrac{\sqrt{2}}{6}\cdot 8a^3\\
+&=a^3\cdot\left(\sqrt{2}\cdot\left(\dfrac{27}{4}-\dfrac{1}{6}-\dfrac{8}{6}\right)\right)\\
+&=\dfrac{21}{4}\cdot\sqrt{2}\cdot a^3
+\end{aligned}$
+
+Das Volumen des urspruenglichen Tetraeders ist:
+
+$\begin{aligned}
+V_T&=\dfrac{1}{3}bh\\
+&=\dfrac{1}{3}\cdot\dfrac{1}{2}\cdot a\cdot \dfrac{\sqrt{3}}{2}\cdot a \cdot \dfrac{\sqrt{6}}{3}\cdot a\\
+&=\dfrac{\sqrt{2}}{12}a^3
+\end{aligned}$
+
+Das Volumen des neuen Koerpers in abhaengigkeit des urspruenglichen Tetraeders ist:
+
+$\begin{aligned}
+\dfrac{V_{neu}}{V_T}&=\dfrac{\dfrac{21}{4}\cdot\sqrt{2}\cdot a^3}{\dfrac{\sqrt{2}}{12}a^3}\\
+&=63
+\end{aligned}$
