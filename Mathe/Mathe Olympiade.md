@@ -62,7 +62,16 @@ $\begin{aligned}
 
 Die Funktionen haben, wenn $a$ einschliesslich zwischen 0 und 6 liegt gemeinsame Punkte.
 
-$f\left(\sqrt{9-\dfrac{a^2}{4}}\right)=\sqrt{9-\sqrt{9-\dfrac{a^2}{4}}^2}$
+$f\left(\sqrt{9-\dfrac{a^2}{4}}\right)=\sqrt{9-\sqrt{9-\dfrac{a^2}{4}}^2}=\sqrt{\dfrac{a^2}{4}}=\dfrac{a}{2}$
+
+$f\left(-\sqrt{9-\dfrac{a^2}{4}}\right)=\sqrt{9-\left(-\sqrt{9-\dfrac{a^2}{4}}\right)^2}=\sqrt{\dfrac{a^2}{4}}=\dfrac{a}{2}$
+
+Die Koordinaten der Punkte sind (sofern sie existieren):
+
+$\left(-\sqrt{9-\dfrac{a^2}{4}}|\dfrac{a}{2}\right)$
+und
+$\left(\sqrt{9-\dfrac{a^2}{4}}|\dfrac{a}{2}\right)$
+
 
 
 
