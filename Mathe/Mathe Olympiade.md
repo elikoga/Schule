@@ -1,3 +1,70 @@
+## 591211
+### a)
+$f(x)=\sqrt{9-x^2}$ fuer $-3\leq x\leq3$
+
+$g(x)=2-\sqrt{9-x^2}$
+
+$\begin{aligned}
+&f(x)=g(x)\\
+\iff&\sqrt{9-x^2}=2-\sqrt{9-x^2}\\
+\iff&2\cdot\sqrt{9-x^2}=2\\
+\iff&\sqrt{9-x^2}=1&\text{Die Quadrierung ist aequivalent weil beide Seiten}\geq0 \\
+\iff &9-x^2=1\\
+\iff &x^2=8\\
+\implies &x=-2\sqrt{2}\lor x=2\sqrt{2}
+\end{aligned}
+$
+
+$\mathbb{L}=\left\{-2\sqrt{2},2\sqrt{2}\right\}$
+
+$f(-2\sqrt{2})=g(-2\sqrt{2})=1$
+
+$f(2\sqrt{2})=g(2\sqrt{2})=1$
+
+Die Koordinaten der 2 gemeinsamen Punkte sind:
+
+$\left(-2\sqrt{2}|1\right)$ und $\left(2\sqrt{2}|1\right)$
+
+### b)
+
+$g_a(x)=a\cdot\sqrt{9-x^2}$
+
+$\begin{aligned}
+&f(x)=g_a(x)\\
+\iff&\sqrt{9-x^2}=a-\sqrt{9-x^2}\\
+\iff&2\sqrt{9-x^2}=a\\
+\end{aligned}
+$
+
+Es ist erkennbar, dass $a\geq0$
+
+$
+\begin{aligned}
+\iff&\sqrt{9-x^2}=\dfrac{a}{2}\\
+\iff&9-x^2=\left(\dfrac{a}{2}\right)^2\\
+\iff&x^2=9-\left(\dfrac{a}{2}\right)^2\\
+\iff&x^2=3^2-\left(\dfrac{a}{2}\right)^2\\
+\iff&x^2=\left(3+\dfrac{a}{2}\right)\left(3-\dfrac{a}{2}\right)\\
+\implies&x=\sqrt{3-\dfrac{a}{2}}\cdot\sqrt{3+\dfrac{a}{2}}\lor
+x=-\sqrt{3-\dfrac{a}{2}}\cdot\sqrt{3+\dfrac{a}{2}}\\
+\iff&x=\sqrt{9-\dfrac{a^2}{4}}\lor
+x=-\sqrt{9-\dfrac{a^2}{4}}
+\end{aligned}
+$
+
+Es ist erkennbar, dass $3-\dfrac{a}{2}\geq0\land3+\dfrac{a}{2}\geq0$
+
+$\begin{aligned}
+\iff &a\leq6\land a\geq-6\\
+\iff &-6\leq a\leq 6\\
+\iff &0\leq a\leq 6 &| \text{weil } a\geq 0
+\end{aligned}$
+
+Die Funktionen haben, wenn $a$ einschliesslich zwischen 0 und 6 liegt gemeinsame Punkte.
+
+$f\left(\sqrt{9-\dfrac{a^2}{4}}\right)=\sqrt{9-\sqrt{9-\dfrac{a^2}{4}}^2}$
+
+
 
 ## 591212
 
@@ -51,9 +118,27 @@ Teilt $g$ $ABCD$ in zwei Trapeze auf, so nennt man die beiden Schnittpunkte $E$ 
 
 Der Flaecheninhalt eines der Trapeze ist:
 
-$\dfrac{1}{2}\left(\overline{EH}+\overline{IJ}\right)\cdot\overline{HI}\cdot$
+$\dfrac{1}{2}\left(\overline{EH}+\overline{FI}\right)\cdot\overline{HI}\cdot$
 
-Der halbe Flaecheninhalt ist 
+Mit
+
+$\overline{EH}\leq\overline{GH}\land \overline{FI}\leq\overline{IJ}$
+
+Der halbe Flaecheninhalt ist:
+
+$\dfrac{1}{2}\cdot\overline{HI}\cdot\overline{IJ}$
+
+Ansatz:
+
+$\dfrac{1}{2}\left(\overline{EH}+\overline{FI}\right)\cdot\overline{HI}\cdot=\dfrac{1}{2}\cdot\overline{HI}\cdot\overline{IJ}$
+
+$\iff\overline{EH}+\overline{FI}=\overline{IJ}$
+
+$\iff\overline{EH}=\overline{IJ}-\overline{FI}=\overline{FJ}$
+
+Die Schnittpunkte $E$ und $F$ sind jeweils gleich weit von den gegenueberliegenden Ecken $H$ und $J$ entfernt.
+
+$g$ geht also durch $M$ weil die Distanzen ueber den Verlauf ueber das Quadrat gleichmaessig von Distanzen vom Punkt $H$ zu Punkt $J$ gehen muessen.
 
 ## 591213
 
@@ -112,4 +197,4 @@ $
 
 Die Annahme $x,y \in \mathbb{Z}$ fuehrt zu einem Wiederspruch.
 
-Es gibt keine ganzen Zahlen x und y, die die Gleichung erfuellen.
+Es gibt keine ganzen Zahlen $x$ und $y$, die die Gleichung erfuellen.
