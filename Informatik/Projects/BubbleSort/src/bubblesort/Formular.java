@@ -94,7 +94,7 @@ public class Formular extends javax.swing.JFrame {
 
     private void besetzenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_besetzenActionPerformed
         for (int idx = 0; idx < zahlenArray.length; idx++) {
-            zahlenArray[idx] = (int) Math.round(Math.random() * 1000 + 0.5);
+            zahlenArray[idx] = (int) Math.round(Math.random() * 100 + 0.5);
         }
         ausgabe.setText(Arrays.toString(zahlenArray));
 
