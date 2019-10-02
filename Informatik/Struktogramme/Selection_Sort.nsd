@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.29-10" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="coafin" created="2019-10-02" changedby="coafin" changed="2019-10-02" origin="Structorizer 3.29-10" text="&#34;Selection Sort&#34;" comment="&#34;&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;INPUT liste: int[]&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<for text="&#34;for n &#60;- 0 to length(liste)&#34;" comment="&#34;&#34;" counterVar="n" startValue="0" endValue="length(liste)" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<instruction text="&#34;var idxMin &#60;-n&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<for text="&#34;for j &#60;- n to length(liste)&#34;" comment="&#34;&#34;" counterVar="j" startValue="n" endValue="length(liste)" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+					<qFor>
+						<alternative text="&#34;(liste[j]&#60;liste[idxMin])&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;idxMin &#60;- j&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+					</qFor>
+				</for>
+				<instruction text="&#34;var temp &#60;- liste[n]&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;liste[n] &#60;- liste[idxMin]&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;liste[idxMin] &#60;- temp&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFor>
+		</for>
+	</children>
+</root>
