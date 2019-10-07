@@ -5,20 +5,24 @@
  */
 package sortieren;
 
-/*************************************************
- *** OOP Sortieren                             ***
- *** @author  Harald Neubeck, Paderborn        ***
- *** @version 06.09.2015                       ***
- *************************************************/
+/**
+ * ***********************************************
+ *** OOP Sortieren
+ *
+ ***
+ *** @author Harald Neubeck, Paderborn ** ** @version 06.09.2015 ***
+ * ***********************************************
+ */
 public class Formular extends javax.swing.JFrame {
 
     private Sortieren sortieren;
+
     /**
      * Creates new form Formular
      */
     public Formular() {
         initComponents();
-        sortieren=new Sortieren();
+        sortieren = new Sortieren();
     }
 
     /**
@@ -100,20 +104,19 @@ public class Formular extends javax.swing.JFrame {
                                 .addComponent(TfGrösse, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(BtErzeugen)))
-                        .addGap(0, 95, Short.MAX_VALUE)))
+                        .addGap(0, 95, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(130, 130, 130))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(LbAusgabe, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LbAusgabe, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TfGrösse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,25 +136,25 @@ public class Formular extends javax.swing.JFrame {
     private void BtErzeugenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtErzeugenActionPerformed
         String grösseStr;
         int grösse;
-        grösseStr=TfGrösse.getText();
-        grösse= Integer.parseInt(grösseStr);
-        sortieren.zufallsfeld(grösse);
-        LbAusgabe.setText (sortieren.toString());
+        grösseStr = TfGrösse.getText();
+        grösse = Integer.parseInt(grösseStr);
+        sortieren.fillArray(grösse);
+        LbAusgabe.setText(sortieren.toString());
     }//GEN-LAST:event_BtErzeugenActionPerformed
 
     private void BtSelectionsortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSelectionsortActionPerformed
         sortieren.selectionsort();
-        LbAusgabe.setText (sortieren.toString());
+        LbAusgabe.setText(sortieren.toString());
     }//GEN-LAST:event_BtSelectionsortActionPerformed
 
     private void BtBubblesortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtBubblesortActionPerformed
         sortieren.bubblesort();
-        LbAusgabe.setText (sortieren.toString());
+        LbAusgabe.setText(sortieren.toString());
     }//GEN-LAST:event_BtBubblesortActionPerformed
 
     private void BtInsertionsortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertionsortActionPerformed
         sortieren.insertionsort();
-        LbAusgabe.setText (sortieren.toString());
+        LbAusgabe.setText(sortieren.toString());
     }//GEN-LAST:event_BtInsertionsortActionPerformed
 
     /**
@@ -161,7 +164,7 @@ public class Formular extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

@@ -11,13 +11,17 @@ public class Sortieren {
 
     } // Konstruktor Sortieren
 
-    public void zufallsfeld(int laengeGefuellt) {
+    public void fillArray(int laengeGefuellt) {
         int index, zufallszahl;
         anzahlGefuellt = laengeGefuellt - 1;
         for (index = 0; index <= anzahlGefuellt; index = index + 1) {
             zufallszahl = (int) ((Math.random() * 99) + 1);
             zahlenarray[index] = new Zahl(zufallszahl);
         }
+//        for (int i = 0; i < 10; i++) {
+//            zahlenarray[i] = new Zahl(i);
+//            anzahlGefuellt = 11;
+//        }
     } // Methode zufallsfeld
 
     public void bubblesort() {
@@ -47,7 +51,17 @@ public class Sortieren {
     }
 
     public void insertionsort() {
-        ;
+        for (int srtd = 0; srtd < anzahlGefuellt + 1; srtd++) {
+            Zahl zSrtd = zahlenarray[srtd];
+            int idx;
+            for (idx = srtd; idx > 0; idx--) {
+                if (zSrtd.compareTo(zahlenarray[idx - 1]) > 0) {
+                    break;
+                }
+                zahlenarray[idx] = zahlenarray[idx - 1];
+            }
+            zahlenarray[idx] = zSrtd;
+        }
     }
 
     public String toString() {
