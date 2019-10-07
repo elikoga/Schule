@@ -11,9 +11,9 @@ public class Sortieren {
 
     } // Konstruktor Sortieren
 
-    public void fillArray(int laengeGefuellt) {
+    public void fillArray(int pLaengeGefuellt) {
         int index, zufallszahl;
-        anzahlGefuellt = laengeGefuellt - 1;
+        anzahlGefuellt = pLaengeGefuellt - 1;
         for (index = 0; index <= anzahlGefuellt; index = index + 1) {
             zufallszahl = (int) ((Math.random() * 99) + 1);
             zahlenarray[index] = new Zahl(zufallszahl);
