@@ -12,17 +12,14 @@ package sortingplayground.sorters;
 public class Quicksort implements Sorter {
 
     @Override
-    public int[] sort(int[] arr) {
+    public void sort(int[] arr) {
         quicksort(arr, 0, arr.length - 1);
-        return arr;
     }
 
     public void quicksort(int[] arr, int lEdge, int rEdge) {
         int pIdx = (lEdge + rEdge) / 2;
         int lIdx = lEdge;
         int rIdx = rEdge;
-
-        System.out.println("Beg:   " + "lEdge:" + lEdge + " rEdge:" + rEdge + " pdix:" + pIdx + " lIdx:" + lIdx + " rIdx:" + rIdx);
 
         while (lIdx < rIdx) {
             while (arr[lIdx] < arr[pIdx]) {
@@ -37,8 +34,6 @@ public class Quicksort implements Sorter {
                 rIdx--;
             }
         }
-
-        System.out.println("End:   " + "lEdge:" + lEdge + " rEdge:" + rEdge + " pdix:" + pIdx + " lIdx:" + lIdx + " rIdx:" + rIdx);
 
         if (lEdge < rIdx) {
             quicksort(arr, lEdge, rIdx);

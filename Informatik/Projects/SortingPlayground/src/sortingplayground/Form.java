@@ -2,7 +2,7 @@ package sortingplayground;
 
 import sortingplayground.sorters.Quicksort;
 import java.util.Arrays;
-import java.util.stream.Collectors;
+import sortingplayground.sorters.Insertionsort;
 
 /**
  *
@@ -12,6 +12,7 @@ public class Form extends javax.swing.JFrame {
 
     int[] zahlenArray = new int[50];
     Quicksort quicksort = new Quicksort();
+    Insertionsort insertionsort = new Insertionsort();
 
     public Form() {
         initComponents();
@@ -33,6 +34,7 @@ public class Form extends javax.swing.JFrame {
         besetzen = new javax.swing.JButton();
         sortieren = new javax.swing.JButton();
         parse = new javax.swing.JButton();
+        insSort = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +69,13 @@ public class Form extends javax.swing.JFrame {
             }
         });
 
+        insSort.setText("Insertionsort");
+        insSort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insSortActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -76,11 +85,14 @@ public class Form extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addComponent(jScrollPane2)
-                    .addComponent(sortieren, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(besetzen, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sortieren, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(besetzen, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(parse, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(parse, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addComponent(insSort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -92,8 +104,10 @@ public class Form extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(besetzen)
                     .addComponent(parse))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(sortieren)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sortieren)
+                    .addComponent(insSort))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -125,6 +139,11 @@ public class Form extends javax.swing.JFrame {
         }
         ausgabe.setText(Arrays.toString(zahlenArray));
     }//GEN-LAST:event_parseActionPerformed
+
+    private void insSortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insSortActionPerformed
+        insertionsort.sort(zahlenArray);
+        ausgabe.setText(Arrays.toString(zahlenArray));
+    }//GEN-LAST:event_insSortActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,6 +187,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JTextArea ausgabe;
     private javax.swing.JButton besetzen;
     private javax.swing.JTextArea input;
+    private javax.swing.JButton insSort;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton parse;

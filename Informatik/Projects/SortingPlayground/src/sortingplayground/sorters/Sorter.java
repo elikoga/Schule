@@ -11,6 +11,6 @@ package sortingplayground.sorters;
  */
 public interface Sorter {
 
-    public int[] sort(int[] a);
+    public void sort(int[] a);
 
 }
