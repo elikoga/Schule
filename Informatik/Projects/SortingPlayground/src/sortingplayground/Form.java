@@ -36,7 +36,6 @@ public class Form extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        input.setEditable(false);
         input.setColumns(20);
         input.setRows(5);
         input.setText("Nutzloses Feld");
@@ -119,8 +118,12 @@ public class Form extends javax.swing.JFrame {
     private void parseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parseActionPerformed
         String arrStr = input.getText();
         String[] strArr = arrStr.split(",");
-        int[] arr = Arrays.stream(strArr).map(Integer.parseInt);
-
+        zahlenArray = new int[strArr.length];
+        for (int idx = 0; idx < strArr.length; idx++) {
+            String str = strArr[idx].strip();
+            zahlenArray[idx] = Integer.parseInt(str);
+        }
+        ausgabe.setText(Arrays.toString(zahlenArray));
     }//GEN-LAST:event_parseActionPerformed
 
     /**
