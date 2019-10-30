@@ -98,4 +98,3 @@ Taeter: Und sie lassen mich dann einfach so gehen?
 Sherlock: Ja, natuerlich. Wenn sie einen verlaengerten, vielleicht auch Lebenslangen Urlaub da machen, wo sie den Juergen kennengelernt haben, OK?
 
 Sherlock wirft dem Taeter den USB Stick zu und entfernt sich.
-
