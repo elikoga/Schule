@@ -1,25 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package rangierbahnhof;
 
-/**
- *
- * @author Harri
- */
 public class Formular extends javax.swing.JFrame {
 
     private Rangierbahnhof rangierbahnhof;
     private Palindromtester pali;
-    /**
-     * Creates new form Formular
-     */
+
     public Formular() {
         initComponents();
-        
-       
     }
 
     /**
@@ -33,10 +20,10 @@ public class Formular extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        TfEingabe = new javax.swing.JTextField();
-        TfUmstellen = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        numWaggonTextField = new javax.swing.JTextField();
+        nextWaggonTextField = new javax.swing.JTextField();
+        startBtn = new javax.swing.JButton();
+        umstellenBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TaBahnhof = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
@@ -50,17 +37,17 @@ public class Formular extends javax.swing.JFrame {
 
         jLabel2.setText("Nächster Waggon:");
 
-        jButton1.setText("Start");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        startBtn.setText("Start");
+        startBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                startBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Umstellen");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        umstellenBtn.setText("Umstellen");
+        umstellenBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                umstellenBtnActionPerformed(evt);
             }
         });
 
@@ -92,13 +79,13 @@ public class Formular extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TfEingabe)
-                    .addComponent(TfUmstellen, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(numWaggonTextField)
+                    .addComponent(nextWaggonTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
+                    .addComponent(umstellenBtn)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
                         .addComponent(jButton3)))
                 .addGap(45, 45, 45))
@@ -121,15 +108,15 @@ public class Formular extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TfEingabe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
+                    .addComponent(numWaggonTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(startBtn)
                     .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(TfUmstellen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2)))
+                        .addComponent(nextWaggonTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(umstellenBtn)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -139,51 +126,45 @@ public class Formular extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
         String grösseStr;
         int grösse;
-        grösseStr=TfEingabe.getText();
-        grösse= Integer.parseInt(grösseStr);
+        grösseStr = numWaggonTextField.getText();
+        grösse = Integer.parseInt(grösseStr);
         rangierbahnhof = new Rangierbahnhof(grösse);
         TaBahnhof.setText("");
         TaBahnhof.append(rangierbahnhof.toString());
-      
-    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_startBtnActionPerformed
+
+    private void umstellenBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_umstellenBtnActionPerformed
         String nummerStr;
         int nummer;
         TaProtokoll.setText("");
-        nummerStr=TfUmstellen.getText();
-        nummer= Integer.parseInt(nummerStr);
-        if (rangierbahnhof.umstellen(nummer)==true)
-        {
+        nummerStr = nextWaggonTextField.getText();
+        nummer = Integer.parseInt(nummerStr);
+        if (rangierbahnhof.umstellen(nummer) == true) {
             TaProtokoll.append(rangierbahnhof.getProtokoll());
-        }
-        else
-        {
+        } else {
             TaProtokoll.append("Nicht möglich!!!");
         }
         TaBahnhof.setText("");
         TaBahnhof.append(rangierbahnhof.toString());
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_umstellenBtnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String wortStr;
         Boolean erfolgreich;
-        wortStr=TfEingabe.getText();
+        wortStr = numWaggonTextField.getText();
         pali = new Palindromtester();
         TaBahnhof.setText("");
-        erfolgreich=pali.wortPruefen(wortStr);
-        if (erfolgreich)
-        {
+        erfolgreich = pali.wortPruefen(wortStr);
+        if (erfolgreich) {
             TaBahnhof.append("ja");
-        }
-        else
-        {
+        } else {
             TaBahnhof.append("nein");
         }
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -193,7 +174,7 @@ public class Formular extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -224,15 +205,15 @@ public class Formular extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea TaBahnhof;
     private javax.swing.JTextArea TaProtokoll;
-    private javax.swing.JTextField TfEingabe;
-    private javax.swing.JTextField TfUmstellen;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField nextWaggonTextField;
+    private javax.swing.JTextField numWaggonTextField;
+    private javax.swing.JButton startBtn;
+    private javax.swing.JButton umstellenBtn;
     // End of variables declaration//GEN-END:variables
 }

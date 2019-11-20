@@ -30,14 +30,14 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="TfEingabe" max="32767" attributes="0"/>
-                  <Component id="TfUmstellen" min="-2" pref="63" max="-2" attributes="0"/>
+                  <Component id="numWaggonTextField" max="32767" attributes="0"/>
+                  <Component id="nextWaggonTextField" min="-2" pref="63" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="umstellenBtn" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton1" min="-2" pref="79" max="-2" attributes="0"/>
+                      <Component id="startBtn" min="-2" pref="79" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -68,16 +68,16 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="TfEingabe" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="numWaggonTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="startBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="TfUmstellen" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nextWaggonTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="umstellenBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -100,24 +100,24 @@
         <Property name="text" type="java.lang.String" value="N&#xe4;chster Waggon:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TfEingabe">
+    <Component class="javax.swing.JTextField" name="numWaggonTextField">
     </Component>
-    <Component class="javax.swing.JTextField" name="TfUmstellen">
+    <Component class="javax.swing.JTextField" name="nextWaggonTextField">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="startBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Start"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startBtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="umstellenBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Umstellen"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="umstellenBtnActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

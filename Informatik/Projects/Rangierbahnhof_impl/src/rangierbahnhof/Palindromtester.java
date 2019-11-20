@@ -11,16 +11,13 @@ package rangierbahnhof;
  */
 public class Palindromtester {
 
-    private Stack<String> keller;
+    private final Stack<String> keller;
     private boolean istPalindrom;
 
     public Palindromtester() {
-        keller = new Stack<String>();
+        keller = new Stack<>();
     }
 
-    /**
-     * prüft einen übergebenen String (ein wort) ob er ein Palindrom ist
-     */
     public boolean wortPruefen(String wort) {
         istPalindrom = true;
         //Bitte implementieren

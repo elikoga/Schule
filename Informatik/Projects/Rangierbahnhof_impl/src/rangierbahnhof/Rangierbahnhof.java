@@ -1,25 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package rangierbahnhof;
 
-/**
- *
- * @author Harri
- */
 public class Rangierbahnhof {
 
-    private Stack<Waggon> gleis1;
-    private Stack<Waggon> gleis2;
-    private Stack<Waggon> gleis3;
+    private final Stack<Waggon> gleis1;
+    private final Stack<Waggon> gleis2;
+    private final Stack<Waggon> gleis3;
     private String protokoll;
 
     public Rangierbahnhof(int waggonzahl) {
-        gleis1 = new Stack<Waggon>();
-        gleis2 = new Stack<Waggon>();
-        gleis3 = new Stack<Waggon>();
+        gleis1 = new Stack<>();
+        gleis2 = new Stack<>();
+        gleis3 = new Stack<>();
 
         for (int i = 1; i <= waggonzahl; i++) {
             Waggon waggon = new Waggon(i);
@@ -39,6 +30,7 @@ public class Rangierbahnhof {
         return gleis.toString();
     }
 
+    @Override
     public String toString() {
         return "Gleis1: " + gleisToString(gleis1) + "\n" + "Gleis2: " + gleisToString(gleis2) + "\n" + "Gleis3: " + gleisToString(gleis3) + "\n";
     }
