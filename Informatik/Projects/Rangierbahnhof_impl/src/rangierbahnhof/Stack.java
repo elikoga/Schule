@@ -70,6 +70,6 @@ public class Stack<ContentType> {
         if (head != null) {
             return (head.toString());
         }
-        return "null";
+        return "[]";
     }
 }

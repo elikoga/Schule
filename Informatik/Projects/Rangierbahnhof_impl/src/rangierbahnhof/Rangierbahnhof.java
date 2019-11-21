@@ -8,6 +8,7 @@ public class Rangierbahnhof {
     private String protokoll;
 
     public Rangierbahnhof(int waggonzahl) {
+        protokoll = "";
         gleis1 = new Stack<>();
         gleis2 = new Stack<>();
         gleis3 = new Stack<>();
@@ -19,6 +20,17 @@ public class Rangierbahnhof {
     }
 
     public boolean umstellen(int waggonNr) {
+        while (!gleis1.isEmpty() && gleis1.top().getNummer() >= waggonNr) {
+            gleis2.push(gleis1.top());
+            gleis1.pop();
+            protokoll = protokoll.concat(gleis2.top().toString() + "\nGleis1 zu Gleis2");
+        }
+        if (gleis2.top().getNummer() == waggonNr) {
+            gleis3.push(gleis2.top());
+            gleis2.pop();
+            protokoll = protokoll.concat(gleis3.top().toString() + "\nGleis2 zu Gleis3");
+            return true;
+        }
         return false;
     }
 
