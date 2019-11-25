@@ -2,7 +2,7 @@ package rangierbahnhof;
 
 public class Palindromtester {
 
-    private final Stack<String> keller;
+    private final Stack<Character> keller;
     private boolean istPalindrom;
 
     public Palindromtester() {
@@ -10,9 +10,16 @@ public class Palindromtester {
     }
 
     public boolean wortPruefen(String wort) {
-        istPalindrom = true;
-        //Bitte implementieren
-        return istPalindrom;
+        for (char chara : wort.toCharArray()) {
+            keller.push(chara);
+        }
+        for (char chara : wort.toCharArray()) {
+            if (chara != keller.top()) {
+                return false;
+            }
+            keller.pop();
+        }
+        return true;
     }
 
 }
