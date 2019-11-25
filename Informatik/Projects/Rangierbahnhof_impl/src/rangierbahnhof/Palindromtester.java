@@ -2,22 +2,16 @@ package rangierbahnhof;
 
 public class Palindromtester {
 
-    private final Stack<Character> keller;
-    private boolean istPalindrom;
-
-    public Palindromtester() {
-        keller = new Stack<>();
-    }
-
     public boolean wortPruefen(String wort) {
-        for (char chara : wort.toCharArray()) {
-            keller.push(chara);
+        Stack<Character> lifo = new Stack<>();
+        for (int i = 0; i < wort.length(); i++) {
+            lifo.push(wort.charAt(i));
         }
-        for (char chara : wort.toCharArray()) {
-            if (chara != keller.top()) {
+        for (int i = 0; i < wort.length(); i++) {
+            if (!lifo.top().equals(wort.charAt(i))) {
                 return false;
             }
-            keller.pop();
+            lifo.pop();
         }
         return true;
     }
