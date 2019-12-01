@@ -11,10 +11,10 @@ package arztpraxis;
  */
 public class Formular extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Formular
-     */
+    Wartezimmer wartezimmer;
+
     public Formular() {
+        wartezimmer = new Wartezimmer();
         initComponents();
     }
 
@@ -48,6 +48,7 @@ public class Formular extends javax.swing.JFrame {
         wartezimmerTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(750, 300));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         titleLable.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -69,7 +70,7 @@ public class Formular extends javax.swing.JFrame {
         kundennummerLable.setText("Kundennummer:");
         patientInputPanel.add(kundennummerLable);
 
-        genderLable.setText("Geschlect:");
+        genderLable.setText("Geschlecht:");
         patientInputPanel.add(genderLable);
 
         prioLable.setText("Prioritaet:");
@@ -89,7 +90,7 @@ public class Formular extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         getContentPane().add(patientInputPanel, gridBagConstraints);
 
-        controlPanel.setLayout(new java.awt.GridLayout());
+        controlPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         anstellenButton.setText("Anstellen");
         anstellenButton.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +101,11 @@ public class Formular extends javax.swing.JFrame {
         controlPanel.add(anstellenButton);
 
         naechsterButton.setText("Patient holen");
+        naechsterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naechsterButtonActionPerformed(evt);
+            }
+        });
         controlPanel.add(naechsterButton);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -121,7 +127,7 @@ public class Formular extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         getContentPane().add(patientPanel, gridBagConstraints);
 
-        wartezimmerPanel.setLayout(new java.awt.GridLayout());
+        wartezimmerPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         wartezimmerTextArea.setEditable(false);
         wartezimmerTextArea.setColumns(20);
@@ -146,10 +152,30 @@ public class Formular extends javax.swing.JFrame {
         String name = nameTextField.getText();
         String kundenNummerT = kundenNummerTextField.getText();
         int kundenNummer = Integer.parseInt(kundenNummerT);
-        String geschlechtT = genderTextField.getText();
+        String geschlecht = genderTextField.getText();
         boolean prio = prioCheckBox.isSelected();
 
+        Patient patient = new Patient(name, kundenNummer, geschlecht, prio);
+        wartezimmer.anstellen(patient);
+        updateWartezimmer();
     }//GEN-LAST:event_anstellenButtonActionPerformed
+
+    private void naechsterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naechsterButtonActionPerformed
+        Patient patient = wartezimmer.naechsterBitte();
+        patientTextField.setText(patient.toString());
+        updateWartezimmer();
+    }//GEN-LAST:event_naechsterButtonActionPerformed
+
+    private void updateWartezimmer() {
+        wartezimmerTextArea.setText(wartezimmer.toString());
+    }
+
+    private void clearInput() {
+        nameTextField.setText("");
+        kundenNummerTextField.setText("");
+        genderTextField.setText("");
+        prioCheckBox.setSelected(false);
+    }
 
     /**
      * @param args the command line arguments
