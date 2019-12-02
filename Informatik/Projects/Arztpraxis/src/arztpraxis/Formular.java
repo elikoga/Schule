@@ -158,12 +158,17 @@ public class Formular extends javax.swing.JFrame {
         Patient patient = new Patient(name, kundenNummer, geschlecht, prio);
         wartezimmer.anstellen(patient);
         updateWartezimmer();
+        clearInput();
     }//GEN-LAST:event_anstellenButtonActionPerformed
 
     private void naechsterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naechsterButtonActionPerformed
         Patient patient = wartezimmer.naechsterBitte();
-        patientTextField.setText(patient.toString());
-        updateWartezimmer();
+        if (patient != null) {
+            patientTextField.setText(patient.toString());
+            updateWartezimmer();
+        } else {
+            patientTextField.setText("");
+        }
     }//GEN-LAST:event_naechsterButtonActionPerformed
 
     private void updateWartezimmer() {

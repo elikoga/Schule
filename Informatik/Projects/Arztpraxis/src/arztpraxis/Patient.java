@@ -39,10 +39,11 @@ public class Patient {
         return prio;
     }
 
+    @Override
     public String toString() {
-        return "Patient(pName=" + name.toString()
-                + ", pKundennummer=" + Integer.toString(kundennummer)
-                + ", pGeschlecht=" + geschlecht.toString()
-                + ", pPrio=" + Boolean.toString(prio) + ")";
+        return "Patient(Name: " + name
+                + ", Kundennummer: " + Integer.toString(kundennummer)
+                + ", Geschlecht: " + geschlecht
+                + ", Prioritaet: " + Boolean.toString(prio) + ")";
     }
 }

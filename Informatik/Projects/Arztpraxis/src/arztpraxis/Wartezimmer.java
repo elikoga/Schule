@@ -82,6 +82,7 @@ public class Wartezimmer {
         return out;
     }
 
+    @Override
     public String toString() {
         return "Anzahl: " + Integer.toString(anzahlAlle()) + "\n"
                 + "Normale: " + Integer.toString(anzahlNormalos()) + " "
