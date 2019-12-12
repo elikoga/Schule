@@ -76,10 +76,13 @@ public class List<ContentType> {
     }
 
     public void insert(ContentType pContent) {
-
+        current = getPrevious(current);
+        append_current(pContent);
+        next();
+        next();
     }
 
-    public void append(ContentType pContent) {
+    public void append_current(ContentType pContent) {
         ListNode newL = new ListNode(pContent);
         if (isEmpty()) {
             first = newL;
@@ -90,7 +93,12 @@ public class List<ContentType> {
             current.setNextNode(newL);
             newL.setNextNode(after);
         }
+    }
 
+    public void append(ContentType pContent) {
+        ListNode newNode = new ListNode(pContent);
+        last.setNextNode(newNode);
+        last = newNode;
     }
 
     public void concat(List<ContentType> pList) {
@@ -116,7 +124,7 @@ public class List<ContentType> {
     }
 
     private ListNode getPrevious(ListNode pNode) {
-        if (pNode != null && pNode != first && !this.isEmpty()) {
+        if (pNode != first && !this.isEmpty()) {
             ListNode temp = first;
             while (temp != null && temp.getNextNode() != pNode) {
                 temp = temp.getNextNode();
