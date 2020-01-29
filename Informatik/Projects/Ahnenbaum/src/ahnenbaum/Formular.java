@@ -63,6 +63,7 @@ public class Formular extends javax.swing.JFrame {
         });
 
         taAusgabe.setColumns(20);
+        taAusgabe.setFont(new java.awt.Font("Fira Code", 0, 13)); // NOI18N
         taAusgabe.setRows(5);
         jScrollPane1.setViewportView(taAusgabe);
 
@@ -105,12 +106,13 @@ public class Formular extends javax.swing.JFrame {
     private void btErstellungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btErstellungActionPerformed
 
         ahnenbaum = new Ahnenbaum();
+
         taAusgabe.setText("");
         taAusgabe.append(ahnenbaum.toString());
     }//GEN-LAST:event_btErstellungActionPerformed
 
     private void btNiveauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNiveauActionPerformed
-        taAusgabe.append(String.valueOf(ahnenbaum.Niveau()));
+        taAusgabe.append(String.valueOf(ahnenbaum.niveau()));
     }//GEN-LAST:event_btNiveauActionPerformed
 
     /**
@@ -130,13 +132,17 @@ public class Formular extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Formular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formular.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Formular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formular.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Formular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formular.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Formular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formular.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
