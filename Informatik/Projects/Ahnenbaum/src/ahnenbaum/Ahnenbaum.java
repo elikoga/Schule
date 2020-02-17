@@ -6,7 +6,6 @@
 package ahnenbaum;
 
 import javax.swing.JOptionPane;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public final class Ahnenbaum {
 
@@ -50,12 +49,19 @@ public final class Ahnenbaum {
         return treeInOrder(baum, "");
     }
 
-    public int niveau() {
-        throw new NotImplementedException();
+    public static final int niveau(BinaryTree tree) {
+        if (tree.isEmpty()) {
+            return 0;
+        } else {
+            return Math.max(
+                    niveau(tree.getLeftTree()),
+                    niveau(tree.getRightTree())
+            ) + 1;
+        }
     }
 
-    public int gibNiveau(BinaryTree baum) {
-        throw new NotImplementedException();
+    public int niveau() {
+        return niveau(this.baum);
     }
 
 }
