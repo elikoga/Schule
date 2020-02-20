@@ -15,6 +15,21 @@ public class Buch implements Comparable<Buch>, ComparableContent<Buch> {
     private String titel;
     private List<String> schlagwoerter;
 
+    public Buch(String titel, List<String> schlagwoerter) {
+        this.titel = titel;
+        this.schlagwoerter = schlagwoerter;
+    }
+
+    public Buch(String titel) {
+        this.titel = titel;
+        this.schlagwoerter = new List<>();
+    }
+
+    public Buch() {
+        this.titel = "";
+        this.schlagwoerter = new List<>();
+    }
+
     @Override
     public boolean isGreater(Buch pContent) {
         return compareTo(pContent) > 0;

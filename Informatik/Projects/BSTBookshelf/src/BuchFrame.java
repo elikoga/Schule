@@ -43,7 +43,7 @@ public class BuchFrame extends javax.swing.JPanel {
         add(jLabel1);
         add(jTextField1);
 
-        jLabel2.setText("Buchtitel:");
+        jLabel2.setText("Schlagwörter:");
         add(jLabel2);
 
         jScrollPane1.setViewportView(jList1);
@@ -70,6 +70,9 @@ public class BuchFrame extends javax.swing.JPanel {
      * @param buch the buch to set
      */
     public void setBuch(Buch buch) {
+        if (buch == null) {
+            buch = new Buch();
+        }
         this.buch = buch;
         jList1.setModel(adapter.convert(buch.getSchlagwoerter()));
         jTextField1.setText(buch.getTitel());
