@@ -33,7 +33,7 @@ public class Form extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buchFrame1 = new BuchFrame(buch);
+        buchFrame = new BuchFrame(buch);
         insertButton = new javax.swing.JButton();
         findButton = new javax.swing.JButton();
         schlagwortButton = new javax.swing.JButton();
@@ -41,7 +41,7 @@ public class Form extends javax.swing.JFrame {
         titelTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        removeSchlagwortButton1 = new javax.swing.JButton();
+        removeSchlagwortButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,10 +72,10 @@ public class Form extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jList1);
 
-        removeSchlagwortButton1.setText("Remove Schlagwort");
-        removeSchlagwortButton1.addActionListener(new java.awt.event.ActionListener() {
+        removeSchlagwortButton.setText("Remove Schlagwort");
+        removeSchlagwortButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeSchlagwortButton1ActionPerformed(evt);
+                removeSchlagwortButtonActionPerformed(evt);
             }
         });
 
@@ -87,23 +87,23 @@ public class Form extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(titelTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(titelTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(removeSchlagwortButton1)
+                        .addComponent(removeSchlagwortButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(insertButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(schlagwortTextField)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(schlagwortTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(schlagwortButton)
                                 .addGap(59, 59, 59)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(findButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buchFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buchFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -115,7 +115,7 @@ public class Form extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(insertButton)
                             .addComponent(titelTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(removeSchlagwortButton1))
+                            .addComponent(removeSchlagwortButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(findButton)
@@ -123,7 +123,7 @@ public class Form extends javax.swing.JFrame {
                             .addComponent(schlagwortButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(buchFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buchFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -144,17 +144,17 @@ public class Form extends javax.swing.JFrame {
     private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
         buch = new Buch(titelTextField.getText(),
                 adapter.convert(jList1.getModel()));
-        buchFrame1.setBuch(buch);
+        buchFrame.setBuch(buch);
         bst.insert(buch);
         jList1.setModel(new DefaultListModel<>());
     }//GEN-LAST:event_insertButtonActionPerformed
 
     private void findButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findButtonActionPerformed
         buch = bst.search(new Buch(titelTextField.getText()));
-        buchFrame1.setBuch(buch);
+        buchFrame.setBuch(buch);
     }//GEN-LAST:event_findButtonActionPerformed
 
-    private void removeSchlagwortButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeSchlagwortButton1ActionPerformed
+    private void removeSchlagwortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeSchlagwortButtonActionPerformed
         int idx = jList1.getSelectedIndex();
         ListModel<String> listModel = jList1.getModel();
         DefaultListModel<String> newListModel = new DefaultListModel<>();
@@ -163,7 +163,7 @@ public class Form extends javax.swing.JFrame {
         }
         newListModel.remove(idx);
         jList1.setModel(newListModel);
-    }//GEN-LAST:event_removeSchlagwortButton1ActionPerformed
+    }//GEN-LAST:event_removeSchlagwortButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,12 +205,12 @@ public class Form extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private BuchFrame buchFrame1;
+    private BuchFrame buchFrame;
     private javax.swing.JButton findButton;
     private javax.swing.JButton insertButton;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton removeSchlagwortButton1;
+    private javax.swing.JButton removeSchlagwortButton;
     private javax.swing.JButton schlagwortButton;
     private javax.swing.JTextField schlagwortTextField;
     private javax.swing.JTextField titelTextField;

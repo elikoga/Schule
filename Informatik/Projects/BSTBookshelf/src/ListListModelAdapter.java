@@ -13,8 +13,8 @@ import javax.swing.ListModel;
  */
 public class ListListModelAdapter<T> {
 
-    public DefaultListModel<T> convert(List<T> list) {
-        DefaultListModel<T> listModel = new DefaultListModel<T>();
+    public ListModel<T> convert(List<T> list) {
+        DefaultListModel<T> listModel = new DefaultListModel<>();
         list.toFirst();
         while (list.hasAccess()) {
             listModel.addElement(list.getContent());
