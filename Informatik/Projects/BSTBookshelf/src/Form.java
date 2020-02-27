@@ -161,7 +161,9 @@ public class Form extends javax.swing.JFrame {
         for (int i = 0; i < listModel.getSize(); i++) {
             newListModel.addElement(listModel.getElementAt(i));
         }
-        newListModel.remove(idx);
+        if (idx != -1) {
+            newListModel.remove(idx);
+        }
         jList1.setModel(newListModel);
     }//GEN-LAST:event_removeSchlagwortButtonActionPerformed
 
