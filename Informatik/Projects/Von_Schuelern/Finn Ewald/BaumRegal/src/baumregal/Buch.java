@@ -10,10 +10,11 @@ package baumregal;
  * @author f.ewald
  */
 public class Buch implements ComparableContent<Buch> {
+
     public String strTitel = "";
     public List<String> liSchlagwort = null;
-    
-    public Buch(String pTitel, List<String> pSchlagworte){
+
+    public Buch(String pTitel, List<String> pSchlagworte) {
         strTitel = pTitel;
         liSchlagwort = pSchlagworte;
     }
@@ -21,22 +22,23 @@ public class Buch implements ComparableContent<Buch> {
     public Buch(String pTitel) {
         strTitel = pTitel;
     }
-    
-    
-    
-    public boolean isLess(Buch pComparableContent){
-        return strTitel.compareTo(pComparableContent.getTitel())<0;
+
+    @Override
+    public boolean isLess(Buch pComparableContent) {
+        return strTitel.compareTo(pComparableContent.getTitel()) < 0;
     }
-    
-    public boolean isEqual(Buch pComparableContent){
+
+    @Override
+    public boolean isEqual(Buch pComparableContent) {
         return strTitel.equals(pComparableContent.getTitel());
     }
-    
-    public boolean isGreater(Buch pComparableContent){
-        return strTitel.compareTo(pComparableContent.getTitel())>0;
+
+    @Override
+    public boolean isGreater(Buch pComparableContent) {
+        return strTitel.compareTo(pComparableContent.getTitel()) > 0;
     }
-    
-    public String getTitel(){
+
+    public String getTitel() {
         return strTitel;
     }
 }

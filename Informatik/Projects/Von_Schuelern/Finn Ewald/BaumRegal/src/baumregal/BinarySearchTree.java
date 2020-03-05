@@ -10,8 +10,8 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
         public BSTNode(CT pContent) {
 
             this.content = pContent;
-            left = new BinarySearchTree<CT>();
-            right = new BinarySearchTree<CT>();
+            left = new BinarySearchTree<>();
+            right = new BinarySearchTree<>();
         }
 
     }
@@ -45,25 +45,25 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
     }
 
     public BinarySearchTree<ContentType> getLeftTree() {
-        if(!isEmpty()){
+        if (!isEmpty()) {
             return node.left;
-        }else{
+        } else {
             return null;
         }
     }
 
     public ContentType getContent() {
-        if(node.content != null){
+        if (node.content != null) {
             return node.content;
-        }else{
+        } else {
             return null;
         }
     }
 
     public BinarySearchTree<ContentType> getRightTree() {
-        if(!isEmpty()){
+        if (!isEmpty()) {
             return node.right;
-        }else{
+        } else {
             return null;
         }
     }
@@ -73,17 +73,17 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
     }
 
     public ContentType search(ContentType pContent) {
-        if(!isEmpty() && pContent != null){
-            if(node.content == pContent){
+        if (!isEmpty() && pContent != null) {
+            if (node.content == pContent) {
                 return node.content;
             }
-            if(node.left == null && node.right == null){
+            if (node.left == null && node.right == null) {
                 return null;
             }
-            if(node.left != null && node.content.isGreater(pContent)){
+            if (node.left != null && node.content.isGreater(pContent)) {
                 node.left.search(pContent);
-            }else{
-                if(node.right != null && node.content.isLess(pContent)){
+            } else {
+                if (node.right != null && node.content.isLess(pContent)) {
                     node.right.search(pContent);
                 }
             }

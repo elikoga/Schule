@@ -9,21 +9,23 @@ package baumregal;
  *
  * @author Finn
  */
-public class baumregal {
+public class Baumregal {
+
     public BinarySearchTree<Buch> biRegal = null;
-    public baumregal(){
-        biRegal = new BinarySearchTree<Buch>();
+
+    public Baumregal() {
+        biRegal = new BinarySearchTree<>();
     }
-    
-    public void buchHinzufügen(Buch pBuch){
+
+    public void buchHinzufügen(Buch pBuch) {
         biRegal.insert(pBuch);
     }
-    
-    public void buchEntfernen(Buch pBuch){
+
+    public void buchEntfernen(Buch pBuch) {
         biRegal.remove(pBuch);
     }
-    
-    public String buchSuchen (Buch pBuch){
+
+    public String buchSuchen(Buch pBuch) {
         return biRegal.search(pBuch).getTitel();
     }
 }

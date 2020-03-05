@@ -10,11 +10,12 @@ package baumregal;
  * @author Harri
  */
 public class Formular extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form Formular
      */
     BinarySearchTree regal;
+
     public Formular() {
         regal = new BinarySearchTree();
         initComponents();
@@ -127,22 +128,21 @@ public class Formular extends javax.swing.JFrame {
         String strTitel;
         strTitel = TFTitel.getText();
         regal.insert(new Buch(strTitel));
-        TFAusgabe.setText("Das Buch "+strTitel+" wurde angefügt.");
+        TFAusgabe.setText("Das Buch " + strTitel + " wurde angefügt.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String strTitel;
         strTitel = TFTitel.getText();
         regal.remove(new Buch(strTitel));
-        TFAusgabe.setText("Das Buch "+strTitel+" wurde gelöscht.");
+        TFAusgabe.setText("Das Buch " + strTitel + " wurde gelöscht.");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String strTitel;
         strTitel = TFTitel.getText();
-        TFAusgabe.setText("gefunden:\n"+regal.search(new Buch(strTitel)));
-        
-        
+        TFAusgabe.setText("gefunden:\n" + regal.search(new Buch(strTitel)));
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -152,7 +152,7 @@ public class Formular extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -162,13 +162,17 @@ public class Formular extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Formular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formular.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Formular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formular.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Formular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formular.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Formular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formular.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
