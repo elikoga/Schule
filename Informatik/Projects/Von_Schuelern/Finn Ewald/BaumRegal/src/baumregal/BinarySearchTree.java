@@ -73,7 +73,7 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
     }
 
     public ContentType search(ContentType pContent) {
-        if (!isEmpty() && pContent != null) {
+        if (!(isEmpty() || pContent == null)) {
             if (node.content == pContent) {
                 return node.content;
             }
@@ -81,10 +81,10 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
                 return null;
             }
             if (node.left != null && node.content.isGreater(pContent)) {
-                node.left.search(pContent);
+                return node.left.search(pContent);
             } else {
                 if (node.right != null && node.content.isLess(pContent)) {
-                    node.right.search(pContent);
+                    return node.right.search(pContent);
                 }
             }
         }
