@@ -11,21 +11,21 @@ package baumregal;
  */
 public class Baumregal {
 
-    public BinarySearchTree<Buch> biRegal = null;
+    public BinarySearchTree<Buch> tree;
 
     public Baumregal() {
-        biRegal = new BinarySearchTree<>();
+        tree = new BinarySearchTree<>();
     }
 
-    public void buchHinzufügen(Buch pBuch) {
-        biRegal.insert(pBuch);
+    public void insert(Buch pBuch) {
+        tree.insert(pBuch);
     }
 
-    public void buchEntfernen(Buch pBuch) {
-        biRegal.remove(pBuch);
+    public void remove(Buch pBuch) {
+        tree.remove(pBuch);
     }
 
-    public String buchSuchen(Buch pBuch) {
-        return biRegal.search(pBuch).getTitel();
+    public String search(Buch pBuch) {
+        return tree.search(pBuch).getTitel();
     }
 }

@@ -11,8 +11,8 @@ package baumregal;
  */
 public class Buch implements ComparableContent<Buch> {
 
-    public String strTitel = "";
-    public List<String> liSchlagwort = null;
+    public String strTitel;
+    public List<String> liSchlagwort;
 
     public Buch(String pTitel, List<String> pSchlagworte) {
         strTitel = pTitel;
@@ -20,7 +20,8 @@ public class Buch implements ComparableContent<Buch> {
     }
 
     public Buch(String pTitel) {
-        strTitel = pTitel;
+        this.liSchlagwort = null;
+        this.strTitel = pTitel;
     }
 
     @Override

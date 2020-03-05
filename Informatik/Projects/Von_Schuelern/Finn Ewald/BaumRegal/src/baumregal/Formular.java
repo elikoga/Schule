@@ -14,10 +14,10 @@ public class Formular extends javax.swing.JFrame {
     /**
      * Creates new form Formular
      */
-    BinarySearchTree regal;
+    Baumregal regal;
 
     public Formular() {
-        regal = new BinarySearchTree();
+        regal = new Baumregal();
         initComponents();
     }
 
@@ -31,12 +31,12 @@ public class Formular extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        TFTitel = new javax.swing.JTextField();
+        titleInputTextfield = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        TFAusgabe = new javax.swing.JTextField();
+        insertButton = new javax.swing.JButton();
+        removeButton = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
+        outputTextfield = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,24 +47,24 @@ public class Formular extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel2.setText("Buch-Titel eingeben:");
 
-        jButton1.setText("anfügen");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        insertButton.setText("anfügen");
+        insertButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                insertButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("entfernen");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        removeButton.setText("entfernen");
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                removeButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setText("suchen");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        searchButton.setText("suchen");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                searchButtonActionPerformed(evt);
             }
         });
 
@@ -82,20 +82,20 @@ public class Formular extends javax.swing.JFrame {
                             .addContainerGap()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(TFTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(titleInputTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(27, 27, 27)
-                                    .addComponent(jButton1)
+                                    .addComponent(insertButton)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jButton2)
+                                    .addComponent(removeButton)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jButton3))
+                                    .addComponent(searchButton))
                                 .addComponent(jLabel2)))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(220, 220, 220)
                             .addComponent(jLabel1))
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(TFAusgabe)))
+                            .addComponent(outputTextfield)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3)))
@@ -110,40 +110,38 @@ public class Formular extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TFTitel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(titleInputTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(insertButton)
+                    .addComponent(removeButton)
+                    .addComponent(searchButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TFAusgabe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(outputTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String strTitel;
-        strTitel = TFTitel.getText();
+    private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
+        String strTitel = titleInputTextfield.getText();
         regal.insert(new Buch(strTitel));
-        TFAusgabe.setText("Das Buch " + strTitel + " wurde angefügt.");
-    }//GEN-LAST:event_jButton1ActionPerformed
+        outputTextfield.setText("Das Buch " + strTitel + " wurde angefügt.");
+    }//GEN-LAST:event_insertButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String strTitel;
-        strTitel = TFTitel.getText();
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+        String strTitel = titleInputTextfield.getText();
         regal.remove(new Buch(strTitel));
-        TFAusgabe.setText("Das Buch " + strTitel + " wurde gelöscht.");
-    }//GEN-LAST:event_jButton2ActionPerformed
+        outputTextfield.setText("Das Buch " + strTitel + " wurde gelöscht.");
+    }//GEN-LAST:event_removeButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String strTitel;
-        strTitel = TFTitel.getText();
-        TFAusgabe.setText("gefunden:\n" + regal.search(new Buch(strTitel)));
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        String strTitel = titleInputTextfield.getText();
+        outputTextfield.setText("gefunden:\n" + regal.search(new Buch(
+                strTitel)));
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,13 +183,13 @@ public class Formular extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TFAusgabe;
-    private javax.swing.JTextField TFTitel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton insertButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField outputTextfield;
+    private javax.swing.JButton removeButton;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JTextField titleInputTextfield;
     // End of variables declaration//GEN-END:variables
 }
