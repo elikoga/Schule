@@ -15,7 +15,7 @@ public class Form extends javax.swing.JFrame {
 
     private Buch buch;
     private static ListListModelAdapter<String> adapter = new ListListModelAdapter<>();
-    private BinarySearchTree<Buch> bst = new BinarySearchTree<>();
+    private Baumregal bst = new Baumregal();
 
     /**
      * Creates new form Form

@@ -70,11 +70,10 @@ public class BuchFrame extends javax.swing.JPanel {
      * @param buch the buch to set
      */
     public void setBuch(Buch buch) {
-        if (buch == null) {
-            buch = new Buch();
+        if (buch != null) {
+            this.buch = buch;
+            jList1.setModel(adapter.convert(buch.getSchlagwoerter()));
+            jTextField1.setText(buch.getTitel());
         }
-        this.buch = buch;
-        jList1.setModel(adapter.convert(buch.getSchlagwoerter()));
-        jTextField1.setText(buch.getTitel());
     }
 }
