@@ -29,17 +29,23 @@ public class AbiChatClient extends Client {
         send("SEND " + message);
     }
 
+    public void disconnect() {
+        send("DISCONNECT");
+    }
+
     public void addToLog(String line) {
         this.chatlog += '\n';
         this.chatlog += line;
         callback.accept(chatlog);
+        System.out.print(chatlog);
     }
 
     @Override
     public void processMessage(String pMessage) {
+        System.out.append("GOT MSG " + pMessage);
         if (pMessage.startsWith("OK SET_NAME ")) {
             String name_set = pMessage.substring("OK SET_NAME ".length());
-            if (name_set != name) {
+            if (!name_set.equals(name)) {
                 addToLog("ERROR: SERVER THINKS YOU'RE " + name_set
                         + " INSTEAD OF " + name);
             }
@@ -50,6 +56,10 @@ public class AbiChatClient extends Client {
         if (pMessage.startsWith("GOT_MESSAGE ")) {
             String message = pMessage.substring("GOT_MESSAGE ".length());
             addToLog(message);
+        }
+        if (pMessage.startsWith("OK DISCONNECTED")) {
+            addToLog("Disconnected.");
+            close();
         }
     }
 
