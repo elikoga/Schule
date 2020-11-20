@@ -12,13 +12,14 @@ package minotaurus;
 public class Formular extends javax.swing.JFrame {
 
     private Minotaurus minotaurus;
+
     /**
      * Creates new form Formular
      */
     public Formular() {
         initComponents();
         minotaurus = new Minotaurus();
-        
+
     }
 
     /**
@@ -154,23 +155,24 @@ public class Formular extends javax.swing.JFrame {
 
     private void btErzeugenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btErzeugenActionPerformed
         taAusgabe.setText("");
+        minotaurus = new Minotaurus();
         taAusgabe.append(minotaurus.graphToString());
     }//GEN-LAST:event_btErzeugenActionPerformed
 
     private void btTiefensucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTiefensucheActionPerformed
-        String start,ziel;
-        start=tfStart.getText();
-        ziel=tfZiel.getText();
+        String start, ziel;
+        start = tfStart.getText();
+        ziel = tfZiel.getText();
         taAusgabe.setText("");
         taAusgabe.append(minotaurus.tiefensuche(start, ziel));
     }//GEN-LAST:event_btTiefensucheActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (minotaurus.hatEulerweg())
-        {
+        if (minotaurus.hatEulerweg()) {
             taAusgabe.append("Ein Eulerweg ist möglich!");
+        } else {
+            taAusgabe.append("Ein Eulerweg ist NICHT möglich!");
         }
-        else {taAusgabe.append("Ein Eulerweg ist NICHT möglich!");}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btTiefensuche1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTiefensuche1ActionPerformed
@@ -178,17 +180,17 @@ public class Formular extends javax.swing.JFrame {
     }//GEN-LAST:event_btTiefensuche1ActionPerformed
 
     private void btBreitensucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBreitensucheActionPerformed
-        String start,ziel;
-        start=tfStart.getText();
-        ziel=tfZiel.getText();
+        String start, ziel;
+        start = tfStart.getText();
+        ziel = tfZiel.getText();
         taAusgabe.setText("");
         taAusgabe.append(minotaurus.breitensuche(start, ziel));
     }//GEN-LAST:event_btBreitensucheActionPerformed
 
     private void btDijkstraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDijkstraActionPerformed
-        String start,ziel;
-        start=tfStart.getText();
-        ziel=tfZiel.getText();
+        String start, ziel;
+        start = tfStart.getText();
+        ziel = tfZiel.getText();
         taAusgabe.setText("");
         taAusgabe.append(minotaurus.dijkstra(start, ziel));
     }//GEN-LAST:event_btDijkstraActionPerformed
@@ -200,7 +202,7 @@ public class Formular extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -210,13 +212,17 @@ public class Formular extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Formular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formular.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Formular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formular.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Formular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formular.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Formular.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formular.class.getName()).log(
+                    java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
