@@ -184,7 +184,7 @@ public class Formular extends javax.swing.JFrame {
         start = tfStart.getText();
         ziel = tfZiel.getText();
         taAusgabe.setText("");
-        taAusgabe.append(minotaurus.breitensuche(start, ziel));
+        taAusgabe.append(minotaurus.bsIterativ(start, ziel));
     }//GEN-LAST:event_btBreitensucheActionPerformed
 
     private void btDijkstraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDijkstraActionPerformed

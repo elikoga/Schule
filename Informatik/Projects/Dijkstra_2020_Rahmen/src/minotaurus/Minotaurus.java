@@ -80,44 +80,95 @@ public class Minotaurus {
     public String tiefensuche(String startknotenSTR, String zielknotenSTR) {
         System.out.println("tiefensuche(" + startknotenSTR
                 + ", " + zielknotenSTR + ")");
+
         if (startknotenSTR.equals(zielknotenSTR)) {
             return zielknotenSTR;
         }
-        List<Vertex> vertices = graph.getVertices();
-        Vertex vertex = null;
-        for (vertices.toFirst(); vertices.hasAccess(); vertices.next()) {
-            vertex = vertices.getContent();
-            if (startknotenSTR.equals(vertex.getID())) {
-                break;
+
+        Vertex startVertex = graph.getVertex(startknotenSTR);
+        startVertex.setMark(true);
+
+        List<Vertex> unmarkedNeighbors = new List<>();
+        appendUnmarkedNeighborsOfVertex(startVertex, unmarkedNeighbors);
+        for (unmarkedNeighbors.toFirst(); unmarkedNeighbors.hasAccess(); unmarkedNeighbors.next()) {
+            Vertex neighbor = unmarkedNeighbors.getContent();
+            String restPath = tiefensuche(neighbor.getID(), zielknotenSTR);
+            if (!restPath.equals("")) {
+                return startVertex.getID() + ":" + restPath;
             }
         }
-        if (vertex == null) {
-            return null;
+
+        return "";
+    }
+
+    public String breitensuche(String startknotenSTR, String zielknotenSTR) {
+
+        return "";
+    }
+
+    public String bsIterativ(String startknotenSTR, String zielknotenSTR) {
+        System.out.println("breitensuche(" + startknotenSTR
+                + ", " + zielknotenSTR + ")");
+        List<List<Vertex>> paths = new List<>();
+        List<Vertex> initPath = new List<>();
+        initPath.append(graph.getVertex(startknotenSTR));
+        paths.append(initPath);
+
+        List<List<Vertex>> otherPaths = new List<>();
+        Vertex goalVertex = graph.getVertex(zielknotenSTR);
+
+        while (!paths.isEmpty()) {
+            for (paths.toFirst(); paths.hasAccess(); paths.next()) {
+                List<Vertex> path = paths.getContent();
+                path.toLast();
+                Vertex currentVertex = path.getContent();
+                currentVertex.setMark(true);
+
+                if (goalVertex.equals(currentVertex)) {
+                    return pathToString(path);
+                }
+
+                List<Vertex> neighbors = new List<>();
+                appendUnmarkedNeighborsOfVertex(currentVertex, neighbors);
+
+                for (neighbors.toFirst(); neighbors.hasAccess(); neighbors.next()) {
+                    List<Vertex> newPath = new List<>();
+                    Vertex neighbor = neighbors.getContent();
+                    copyList(path, newPath);
+                    newPath.append(neighbor);
+                    otherPaths.append(newPath);
+                }
+            }
+            paths = otherPaths;
+            otherPaths = new List<>();
         }
+        return "";
+    }
+
+    String pathToString(List<Vertex> path) {
+        String out = "";
+        for (path.toFirst(); path.hasAccess(); path.next()) {
+            out += path.getContent().getID() + ":";
+        }
+        return out;
+    }
+
+    void copyList(List<Vertex> from, List<Vertex> to) {
+        to.toFirst();
+        for (from.toFirst(); from.hasAccess(); from.next()) {
+            to.append(from.getContent());
+        }
+    }
+
+    void appendUnmarkedNeighborsOfVertex(Vertex vertex, List<Vertex> vertexList) {
         List<Vertex> neighbors = graph.getNeighbours(vertex);
         Vertex neighbor = null;
         for (neighbors.toFirst(); neighbors.hasAccess(); neighbors.next()) {
             neighbor = neighbors.getContent();
-            if (!neighbor.isMarked()
-                    && zielknotenSTR.equals(neighbor.getID())) {
-                break;
+            if (!neighbor.isMarked()) {
+                vertexList.append(neighbor);
             }
         }
-        if (neighbor == null) {
-            return null;
-        }
-        neighbor.setMark(true);
-        return vertex.getID() + ":" + tiefensuche(neighbor.getID(),
-                zielknotenSTR);
-    }
-
-    public String breitensuche(String startknotenSTR, String zielknotenSTR) {
-        return "";
-    }
-
-    private String bsIterativ(String startknotenSTR, String zielknotenSTR) {
-
-        return "";
     }
 
     private String tsIterativ(String startknotenSTR, String zielknotenSTR) {
