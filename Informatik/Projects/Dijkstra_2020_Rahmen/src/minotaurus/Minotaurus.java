@@ -109,38 +109,33 @@ public class Minotaurus {
     public String bsIterativ(String startknotenSTR, String zielknotenSTR) {
         System.out.println("breitensuche(" + startknotenSTR
                 + ", " + zielknotenSTR + ")");
-        List<List<Vertex>> paths = new List<>();
+        Queue<List<Vertex>> pathQueue = new Queue<>();
         List<Vertex> initPath = new List<>();
         initPath.append(graph.getVertex(startknotenSTR));
-        paths.append(initPath);
+        pathQueue.enqueue(initPath);
 
-        List<List<Vertex>> otherPaths = new List<>();
         Vertex goalVertex = graph.getVertex(zielknotenSTR);
 
-        while (!paths.isEmpty()) {
-            for (paths.toFirst(); paths.hasAccess(); paths.next()) {
-                List<Vertex> path = paths.getContent();
-                path.toLast();
-                Vertex currentVertex = path.getContent();
-                currentVertex.setMark(true);
+        for (List<Vertex> path; !pathQueue.isEmpty(); pathQueue.dequeue()) {
+            path = pathQueue.front();
+            path.toLast();
+            Vertex currentVertex = path.getContent();
+            currentVertex.setMark(true);
 
-                if (goalVertex.equals(currentVertex)) {
-                    return pathToString(path);
-                }
-
-                List<Vertex> neighbors = new List<>();
-                appendUnmarkedNeighborsOfVertex(currentVertex, neighbors);
-
-                for (neighbors.toFirst(); neighbors.hasAccess(); neighbors.next()) {
-                    List<Vertex> newPath = new List<>();
-                    Vertex neighbor = neighbors.getContent();
-                    copyList(path, newPath);
-                    newPath.append(neighbor);
-                    otherPaths.append(newPath);
-                }
+            if (goalVertex.equals(currentVertex)) {
+                return pathToString(path);
             }
-            paths = otherPaths;
-            otherPaths = new List<>();
+
+            List<Vertex> neighbors = new List<>();
+            appendUnmarkedNeighborsOfVertex(currentVertex, neighbors);
+
+            for (neighbors.toFirst(); neighbors.hasAccess(); neighbors.next()) {
+                List<Vertex> newPath = new List<>();
+                Vertex neighbor = neighbors.getContent();
+                copyList(path, newPath);
+                newPath.append(neighbor);
+                pathQueue.enqueue(newPath);
+            }
         }
         return "";
     }
